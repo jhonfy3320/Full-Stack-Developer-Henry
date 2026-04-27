@@ -1,0 +1,289 @@
+/* ==========================================================================
+   RESET Y CONFIGURACION BASE
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+/*
+ * INVESTIGACION: ¿Que es HSL y por que usarlo?
+ *
+ * 1. ¿Que significa cada valor en hsl()?
+ *    - H (Hue): el matiz o tono del color en la rueda cromatica (0 a 360).
+ *    - S (Saturation): la intensidad del color, de apagado a vibrante.
+ *    - L (Lightness): que tan claro u oscuro es el color.
+ *
+ * 2. ¿Por que HSL puede ser mas util que HEX o RGB?
+ *    - Porque permite crear variaciones del mismo color de forma mas intuitiva.
+ *    - Porque es mas facil construir paletas consistentes cambiando solo saturation o lightness.
+ *
+ * 3. Ejemplo practico: ¿Cuando usar HSL en un proyecto real?
+ *    - Cuando quiero crear un color principal y sacar una version clara y otra oscura
+ *      sin cambiar el tono base.
+ */
+
+/* ==========================================================================
+   VARIABLES CSS CON HSL
+   ========================================================================== */
+
+:root {
+  /* Color principal base */
+  --color-primario: hsl(210, 80%, 52%);
+
+  /* Misma coordenada Hue (210), variando Lightness */
+  --color-primario-claro: hsl(210, 80%, 68%);
+  --color-primario-oscuro: hsl(210, 80%, 36%);
+
+  /* Color secundario colorido */
+  --color-secundario: hsl(330, 85%, 60%);
+  --color-secundario-claro: hsl(330, 85%, 72%);
+
+  /* Fondo general */
+  --color-fondo: hsl(45, 100%, 97%);
+  --color-superficie: hsl(0, 0%, 100%);
+
+  /* Texto */
+  --color-texto: hsl(220, 25%, 20%);
+  --color-texto-suave: hsl(220, 15%, 40%);
+  --color-texto-claro: hsl(0, 0%, 100%);
+
+  /* Extras decorativos */
+  --color-borde: hsl(210, 50%, 85%);
+  --color-footer: hsl(220, 35%, 18%);
+  --color-acento: hsl(42, 100%, 60%);
+
+  /* Espaciado */
+  --espacio-xs: 0.5rem;
+  --espacio-sm: 1rem;
+  --espacio-md: 1.5rem;
+  --espacio-lg: 2rem;
+  --espacio-xl: 3rem;
+
+  /* Bordes */
+  --radio-sm: 0.75rem;
+  --radio-md: 1rem;
+  --radio-lg: 1.25rem;
+
+  /* Sombras */
+  --sombra-suave: 0 0.5rem 1rem hsla(210, 40%, 30%, 0.12);
+  --sombra-media: 0 1rem 2rem hsla(210, 40%, 30%, 0.18);
+  --sombra-hover: 0 1.25rem 2.5rem hsla(210, 55%, 25%, 0.25);
+}
+
+/* ==========================================================================
+   ESTILOS BASE
+   ========================================================================== */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-texto);
+  background:
+    radial-gradient(circle at top left, hsla(330, 90%, 75%, 0.25), transparent 30%),
+    radial-gradient(circle at top right, hsla(210, 95%, 70%, 0.25), transparent 30%),
+    linear-gradient(180deg, hsl(45, 100%, 98%) 0%, hsl(210, 100%, 99%) 100%);
+}
+
+/* ==========================================================================
+   HEADER CON FLEXBOX
+   ========================================================================== */
+
+.header {
+  background: linear-gradient(
+    135deg,
+    var(--color-primario) 0%,
+    var(--color-secundario) 100%
+  );
+  box-shadow: var(--sombra-media);
+  padding: var(--espacio-lg) var(--espacio-sm);
+}
+
+.header-contenido {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: var(--espacio-lg) var(--espacio-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.titulo-principal {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: var(--espacio-sm);
+  color: var(--color-texto-claro);
+  text-shadow: 0 0.25rem 0.75rem hsla(0, 0%, 0%, 0.18);
+}
+
+.descripcion {
+  max-width: 42rem;
+  font-size: 1.125rem;
+  color: hsla(0, 0%, 100%, 0.92);
+}
+
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================================== */
+
+.contenedor {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: var(--espacio-xl) var(--espacio-lg);
+}
+
+/* ==========================================================================
+   GALERIA CON GRID
+   ========================================================================== */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-lg);
+}
+
+/* ==========================================================================
+   TARJETAS DE FOTOS
+   ========================================================================== */
+
+.foto-tarjeta {
+  background-color: var(--color-superficie);
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-suave);
+  border: 0.125rem solid hsla(210, 70%, 80%, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.foto-tarjeta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 55%,
+    hsla(210, 40%, 20%, 0.03) 100%
+  );
+  pointer-events: none;
+}
+
+.foto-tarjeta:hover {
+  transform: translateY(-0.4rem) scale(1.01);
+  box-shadow: var(--sombra-hover);
+  border-color: hsla(330, 85%, 60%, 0.45);
+}
+
+.foto-tarjeta img {
+  width: 100%;
+  height: 15.625rem;
+  object-fit: cover;
+  display: block;
+}
+
+.foto-info {
+  padding: var(--espacio-md);
+  background: linear-gradient(
+    180deg,
+    hsl(0, 0%, 100%) 0%,
+    hsl(45, 100%, 99%) 100%
+  );
+}
+
+.foto-titulo {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-bottom: var(--espacio-xs);
+  color: var(--color-primario-oscuro);
+}
+
+.foto-descripcion {
+  font-size: 1rem;
+  color: var(--color-texto-suave);
+  margin: 0;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.footer {
+  background: linear-gradient(
+    135deg,
+    var(--color-footer) 0%,
+    var(--color-primario-oscuro) 100%
+  );
+  color: var(--color-texto-claro);
+  text-align: center;
+  padding: var(--espacio-lg);
+  margin-top: var(--espacio-xl);
+}
+
+.footer p {
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .titulo-principal {
+    font-size: 2.4rem;
+  }
+
+  .descripcion {
+    font-size: 1rem;
+  }
+
+  .contenedor {
+    padding: var(--espacio-lg) var(--espacio-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .titulo-principal {
+    font-size: 2rem;
+  }
+
+  .descripcion {
+    font-size: 0.95rem;
+  }
+
+  .contenedor {
+    padding: var(--espacio-md);
+  }
+
+  .header {
+    padding: var(--espacio-md) var(--espacio-sm);
+  }
+
+  .header-contenido {
+    padding: var(--espacio-md) var(--espacio-sm);
+  }
+
+  .foto-info {
+    padding: var(--espacio-sm);
+  }
+}
