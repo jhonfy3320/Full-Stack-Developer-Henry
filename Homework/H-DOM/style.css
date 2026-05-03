@@ -1,0 +1,36 @@
+/* style.css – estilos básicos, sin librerías externas */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 3rem;
+    text-align: center;
+    background-color: #863131;
+}
+
+button {
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #d5990d;
+    color: rgb(12, 6, 1);
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #255c15;
+}
+
+#parrafo {
+    margin-top: 4%;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+p {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #208cba;
+  background-color: #74731f;
+}
