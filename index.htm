@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Proyecto Web</title>
+</head>
+<body>
+
+  <header>
+    <h1>Mi Proyecto Web</h1>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#temas-vistos">temas-vistos</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="inicio">
+      <h2>Bienvenido a mi sitio web</h2>
+      <p>
+        Este es un proyecto creado para practicar HTML semántico,
+        estructura web, organización de contenido y buenas prácticas.
+      </p>
+    <section id="temas-vistos">
+  <h2>Temas vistos en el Módulo 1</h2>
+
+  <p>
+    En esta sección se presentan los temas principales trabajados durante el módulo,
+    acompañados de una imagen, nombre y breve descripción.
+  </p>
+
+  <article>
+    <figure>
+      <img src="img/html-semantico.jpg" alt="Representación de estructura HTML semántica">
+      <figcaption>HTML Semántico</figcaption>
+    </figure>
+
+    <h3>Introducción al Desarrollo Web y HTML Semántico</h3>
+    <p>
+      Aprendimos la estructura básica de una página web usando etiquetas semánticas
+      como header, nav, main, section, article, aside y footer para organizar mejor
+      el contenido.
+    </p>
+  </article>
+
+  <article>
+    <figure>
+      <img src="img/css-fundamentos.jpg" alt="Diseño visual de una página web con CSS">
+      <figcaption>CSS Fundamental</figcaption>
+    </figure>
+
+    <h3>CSS Fundamentos y Diseño Visual</h3>
+    <p>
+      Trabajamos con estilos visuales para mejorar la presentación de una página web,
+      aplicando colores, tipografías, espaciados, cajas, layouts y diseño responsive.
+    </p>
+  </article>
+
+  <article>
+    <figure>
+      <img src="img/git-github.jpg" alt="Control de versiones con Git y GitHub">
+      <figcaption>Git y GitHub</figcaption>
+    </figure>
+
+    <h3>Git, GitHub y Control de Versiones</h3>
+    <p>
+      Practicamos el uso de Git para controlar cambios en el código y GitHub para
+      guardar proyectos en la nube, colaborar y mantener un historial ordenado.
+    </p>
+  </article>
+
+  <article>
+    <figure>
+      <img src="img/javascript.jpg" alt="Código JavaScript en una pantalla">
+      <figcaption>JavaScript</figcaption>
+    </figure>
+
+    <h3>JavaScript Fundamentos y Lógica de Programación</h3>
+    <p>
+      Estudiamos los fundamentos de JavaScript, variables, tipos de datos,
+      condicionales, ciclos, funciones y lógica necesaria para dar comportamiento
+      a las páginas web.
+    </p>
+  </article>
+
+  <article>
+    <figure>
+      <img src="img/dom-eventos.jpg" alt="Manipulación del DOM en una aplicación web">
+      <figcaption>DOM y Eventos</figcaption>
+    </figure>
+
+    <h3>Manipulación del DOM, Eventos y DevTools</h3>
+    <p>
+      Aprendimos a seleccionar elementos HTML desde JavaScript, modificar contenido,
+      responder a eventos del usuario y usar las herramientas del navegador para
+      depurar errores.
+    </p>
+  </article>
+
+  <article>
+    <figure>
+      <img src="img/ia-desarrollo-web.jpg" alt="Inteligencia artificial aplicada al desarrollo web">
+      <figcaption>IA para Desarrollo Web</figcaption>
+    </figure>
+
+    <h3>AI Prompting para Desarrollo Web</h3>
+    <p>
+      Utilizamos inteligencia artificial como apoyo para generar ideas, mejorar código,
+      resolver errores, documentar proyectos y acelerar el proceso de desarrollo web.
+    </p>
+  </article>
+
+  <article>
+    <figure>
+      <img src="img/github-pages.jpg" alt="Publicación de una página web con GitHub Pages">
+      <figcaption>GitHub Pages</figcaption>
+    </figure>
+
+    <h3>Deployment con GitHub Pages</h3>
+    <p>
+      Aprendimos a publicar una página web para que deje de estar solo en local y pueda
+      ser visitada desde internet mediante GitHub Pages.
+    </p>
+  </article>
+
+  <article>
+    <figure>
+      <img src="img/proyecto-integrador.jpg" alt="Proyecto integrador de desarrollo web">
+      <figcaption>Proyecto Integrador</figcaption>
+    </figure>
+
+    <h3>Proyecto Integrador 1</h3>
+    <p>
+      Integramos los conocimientos adquiridos en HTML, CSS, JavaScript, DOM, Git,
+      GitHub, IA y despliegue web para construir un proyecto completo.
+    </p>
+  </article>
+</section>
+
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p>
+        Soy un estudiante de desarrollo web full stack en formación,
+        practicando HTML, CSS, JavaScript, DOM, Git, GitHub y publicación web.
+      </p>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Formulario de contacto</legend>
+
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
+
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" required>
+
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+          <button type="submit">Enviar mensaje</button>
+        </fieldset>
+      </form>
+    </section>
+
+  </main>
+
+  <aside>
+    <h2>Información adicional</h2>
+    <p>
+      Este espacio puede usarse para noticias, enlaces útiles,
+      recursos recomendados o información complementaria.
+    </p>
+  </aside>
+
+  <footer>
+    <p>&copy; 2026 Mi Proyecto Web. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
